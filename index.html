@@ -127,9 +127,19 @@
     display:flex; align-items:center; gap:10px; margin-bottom:20px;
   }
   .eyebrow::before{ content:''; width:20px; height:1px; background:var(--signal); }
-  .hero h1{ font-size:56px; line-height:1.06; max-width:820px; }
+  .hero h1{
+    font-size:56px; line-height:1.06; max-width:820px;
+    animation:hero-up 0.9s cubic-bezier(.4,0,.2,1) both;
+  }
   @media(max-width:640px){ .hero h1{font-size:34px;} }
-  .hero .sub{ margin-top:24px; max-width:520px; font-size:18px; color:var(--ink-soft); }
+  .hero .sub{
+    margin-top:24px; max-width:520px; font-size:18px; color:var(--ink-soft);
+    animation:hero-up 0.9s cubic-bezier(.4,0,.2,1) 0.18s both;
+  }
+  @keyframes hero-up{
+    from{ opacity:0; transform:translateY(22px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
 
   .btn-primary{
     display:inline-flex; align-items:center; gap:10px;
@@ -143,6 +153,8 @@
   .btn-primary:active{ transform:scale(0.98); }
   .btn-primary .arrow{ transition:transform 0.15s ease; }
   .btn-primary:hover .arrow{ transform:translateX(3px); }
+  .hero-btn{ animation:hero-up 0.9s cubic-bezier(.4,0,.2,1) 0.34s both; }
+  .hero-btn:hover{ transform:translateY(-2px); }
 
   /* ---------- signal diagram (hero) ---------- */
   .signal-strip{
@@ -288,7 +300,7 @@
     <div class="eyebrow">AI SYSTEMS FOR BUSINESS OPERATIONS</div>
     <h1>Turn More Leads Into Customers. Without Adding More Staff.</h1>
     <p class="sub">Veyro builds AI-powered systems that answer your calls, capture your leads, and automate the work that slows your business down.</p>
-    <a href="#audit" class="btn-primary">Get Your Free Automation Audit <span class="arrow">→</span></a>
+    <a href="#audit" class="btn-primary hero-btn">Get Your Free Automation Audit <span class="arrow">→</span></a>
 
     <div class="signal-strip reveal">
       <svg viewBox="0 0 900 130" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram showing a missed call converted into a booked call by Veyro's AI receptionist">
