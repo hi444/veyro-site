@@ -251,8 +251,36 @@
   .cta-final h2{ color:#F6F7FB; font-size:38px; max-width:600px; line-height:1.15; }
   @media(max-width:640px){ .cta-final h2{font-size:28px;} }
   .cta-final .sub{ margin-top:18px; max-width:480px; color:#8B93AC; font-size:16px; }
-  .cta-final .btn-primary{ background:var(--amber); color:#1A1204; border-color:var(--amber); }
+  .cta-final .btn-primary{ background:var(--amber); color:#1A1204; border-color:var(--amber); margin-top:8px; }
   .cta-final .btn-primary:hover{ background:#F6C167; border-color:#F6C167; box-shadow:0 0 28px rgba(240,172,76,0.35); }
+
+  /* ---------- audit form ---------- */
+  .audit-form{ margin-top:40px; max-width:640px; }
+  .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:18px; }
+  @media(max-width:560px){ .form-row{ grid-template-columns:1fr; gap:18px; } }
+  .form-field{ display:flex; flex-direction:column; gap:8px; }
+  .form-field-full{ margin-bottom:22px; }
+  .form-field label{
+    font-family:'IBM Plex Mono',monospace; font-size:11px; text-transform:uppercase;
+    letter-spacing:0.06em; color:var(--ink-soft);
+  }
+  .form-field label .optional{ text-transform:none; letter-spacing:0; color:#5C6480; }
+  .form-field input, .form-field textarea{
+    background:var(--dark-panel);
+    border:1px solid var(--dark-line);
+    border-radius:var(--radius);
+    padding:12px 14px;
+    color:#F6F7FB;
+    font-family:'Inter',sans-serif;
+    font-size:14px;
+    resize:vertical;
+    transition:border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .form-field input::placeholder, .form-field textarea::placeholder{ color:#4A5270; }
+  .form-field input:focus, .form-field textarea:focus{
+    outline:none; border-color:var(--amber); box-shadow:0 0 0 3px rgba(240,172,76,0.15);
+  }
+  .form-note{ margin-top:14px; font-size:11px; color:#5C6480; }
 
   /* ---------- footer ---------- */
   footer{
@@ -470,8 +498,41 @@
   <div class="wrap">
     <div class="eyebrow reveal">FREE AUTOMATION AUDIT</div>
     <h2 class="reveal">See where your business is losing leads.</h2>
-    <p class="sub reveal">Get a free 15-minute automation audit.</p>
-    <a href="#" class="btn-primary reveal">Get Your Free Automation Audit <span class="arrow">→</span></a>
+    <p class="sub reveal">Get a free 15-minute automation audit. Tell us a bit about your business and we'll reach out to schedule.</p>
+
+    <form class="audit-form reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <!-- Honeypot field to catch bots — leave hidden -->
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_subject" value="New Automation Audit Request — Veyro">
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+        </div>
+        <div class="form-field">
+          <label for="business">Business name</label>
+          <input type="text" id="business" name="business" placeholder="Smith & Co." required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="jane@smithco.com" required>
+        </div>
+        <div class="form-field">
+          <label for="phone">Phone <span class="optional">(optional)</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+        </div>
+      </div>
+      <div class="form-field form-field-full">
+        <label for="notes">What's slowing your business down? <span class="optional">(optional)</span></label>
+        <textarea id="notes" name="notes" rows="3" placeholder="Missed calls, slow follow-up, outdated site..."></textarea>
+      </div>
+
+      <button type="submit" class="btn-primary">Send My Free Audit Request <span class="arrow">→</span></button>
+      <p class="form-note mono">We'll respond within one business day. No spam, no obligation.</p>
+    </form>
   </div>
 </section>
 
