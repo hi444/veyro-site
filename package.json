@@ -1,0 +1,24 @@
+{
+  "name": "veyro-site",
+  "version": "1.0.0",
+  "description": "Veyro — AI Systems for Business Operations",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hi444/veyro-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hi444/veyro-site/issues"
+  },
+  "homepage": "https://github.com/hi444/veyro-site#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
